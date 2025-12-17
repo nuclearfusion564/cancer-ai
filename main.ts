@@ -37,7 +37,7 @@ function perceptrons(inputValues: DataObject[], answers: number[]) {
   const featureKeys = Object.keys(inputValues[0]); 
 
   inputValues.forEach((inputObj: DataObject, rowIndex: number) => {
-    let prediction = 0; // reset per row
+    let prediction = 0; 
 
     featureKeys.forEach((key, featureIndex) => {
       const value = Number((inputObj as any)[key]); 
@@ -50,13 +50,11 @@ function perceptrons(inputValues: DataObject[], answers: number[]) {
 
     const error = answers[rowIndex] - prediction;
 
-    // weight update per feature
     featureKeys.forEach((key, featureIndex) => {
       const value = Number((inputObj as any)[key]);
       weights[featureIndex] += error * value * learningRate;
     });
 
-    // bias update per row
     weights[featureKeys.length] += error * bias * learningRate;
 
     errorLogs.push(error);
