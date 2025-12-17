@@ -89,15 +89,10 @@ async function main() {
     perceptrons(inputs, answers);
   }
 
-  let errorAverage = 0;
-  errorLogs.forEach(error => {
-    errorAverage += Math.abs(error);
-  })
-
-  errorAverage = errorAverage / errorLogs.length
+  const errorPercent = errorLogs[errorLogs.length-1]
 
   console.log("CancerGPT has finally finished his winter arc!!")
-  console.log(`His single braincell correctly identified tumors ${Math.round((1 - errorAverage) * 100)}% of the time!`);
+  console.log(`His single braincell correctly identified tumors ${Math.round((1 - errorPercent) * 100)}% of the time!`);
 }
 
 main();
