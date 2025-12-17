@@ -1,6 +1,6 @@
 export interface DataObject {
-    Image: string;
-    Class: string;
+    Image?: string;
+    Class?: string;
     Mean: string;
     Variance: string;
     'Standard Deviation': string;
